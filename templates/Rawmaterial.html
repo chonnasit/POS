@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  href="{% static 'assets/css/simple-sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/home.css' %}" />
+    <title>Raw material</title>
+  </head>
+  <body  >
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bgc" id="sidebar-wrapper">
+          <div class="sidebar-heading" style="text-align: center">
+            <a style="font-size: 24px; color: white" href=""> POS </a>
+            <div class="inner" style="text-align: center"></div>
+          </div>
+          <div class="list-group">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action"
+              style="border: none"
+            >
+              จัดการที่นั่ง
+            </a>
+            <li class="active">
+              <a
+                href="#orderSubmenu"
+                class="list-group-item list-group-item-action"
+                style="border: none"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                >สั่งและชำระ</a
+              >
+              <ul class="collapse list-unstyled" id="orderSubmenu">
+                <li>
+                  <a href="#">-ของหวาน</a>
+                </li>
+                <li>
+                  <a href="#">-เครื่องดื่ม</a>
+                </li>
+                <li>
+                  <a href="#">-ไอศครีม</a>
+                </li>
+              </ul>
+            </li>
+
+            <a href="#" class="list-group-item list-group-item-action">
+              ออเดอร์ที่เปิดอยู่
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              ประวัติใบเสร็จ
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              จัดการครัว
+            </a>
+            <li class="active">
+              <a
+                href="#saleSubmenu"
+                class="list-group-item list-group-item-action"
+                style="border: none"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                >รายงาน</a
+              >
+              <ul class="collapse list-unstyled" id="saleSubmenu">
+                <li>
+                  <a href="#">สรุปยอดขาย</a>
+                </li>
+                <li>
+                  <a href="#">รายการทิป</a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="active">
+              <a
+                href="#settingSubmenu"
+                class="list-group-item list-group-item-action"
+                style="border: none"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                >ตั้งค่า</a
+              >
+              <ul class="collapse list-unstyled" id="settingSubmenu">
+                <li>
+                  <a href="#">-เพิ่มประเภทอาหาร</a>
+                </li>
+                <li>
+                  <a href="#">-เเก้ไขเมนูที่สั่งผิด</a>
+                </li>
+                <li>
+                  <a href="#">-เพิ่มเมนู</a>
+                </li>
+                <li>
+                  <a href="#">-ลบเมนู</a>
+                </li>
+                <li>
+                  <a href="#">-เพิ่มจำนวนที่นั่ง</a>
+                </li>
+                <li>
+                  <a href="#">-ลบจำนวนที่นั่ง</a>
+                </li>
+                <li>
+                  <a href="#">-ตั้งค่าใบเสร็จ</a>
+                </li>
+                <li>
+                  <a href="#">-เปลี่ยนรหัสผ่าน</a>
+                </li>
+                <li>
+                  <a href="#">-จัดการพนักงาน</a>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+    <div id="page-content-wrapper"  >
+      <nav class="navbar navbar-expand-lg navbar-dark  border-bottom"  style="background:#323444" >
+        <div    class="collapse navbar-collapse"   id="navbarSupportedContent" >
+           <p style="text-align: center; margin: auto;color: white">ประเภทอาหาร</p>
+       </div>
+    </nav>
+
+    <div class="card-group" style="padding:5%">
+      <a href="Raw.html"><button id="" class="Buttonclass" type="button" >
+        <div
+          class="card text-white bg-dark mb-3 card-mine"
+          style="width: 12rem; height: 8rem; border-radius: 30px;padding-top:25%"
+        >
+          <div style="text-align: center" >ของหวาน</div>
+        </div>
+      </button></a>
+
+     <button id="" class="Buttonclass" type="button" >
+       <div
+         class="card text-white bg-dark mb-3 card-mine"
+         style="width: 12rem; height: 8rem; border-radius: 30px;padding-top:25%"
+       >
+         <div style="text-align: center" >เครื่องดื่ม</div>
+       </div>
+     </button>
+
+     <button id="" class="Buttonclass" type="button">
+       <div
+         class="card text-white bg-dark mb-3 card-mine"
+         style="width: 12rem; height: 8rem; border-radius: 30px;padding-top:25%"
+       >
+
+         <div style="text-align: center" >ไอศรีม</div>
+       </div>
+     </button>
+  </body>
+</html>

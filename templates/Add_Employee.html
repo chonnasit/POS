@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มพนักงาน</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+    crossorigin="anonymous">
+    
+</head>
+<body>
+    <h1 align = center>ระบบจัดการพนักงาน</h1>
+    
+    <div class="row justify-content-between " >
+        <div class="col-4">
+          <h3 align = center> เพิ่มพนักงาน </h3>
+        </div>
+    </div>
+    
+   
+      
+
+   <div class="container px-4 mt-3 ">
+        <div class="row gx-5">
+            <div class="col">
+                <label for="">ชื่อ-นามสกุล *</label>
+                <input type="text" class="form-control" name="name" style="width:500px;">
+            </div>
+            
+        </div>
+
+        <div class="from-group">
+            <label for="">เลขบัตรประจำตัวประชาชน *</label>
+            <input type="text" class="form-control" name = "ID_card_number" style="width:400px;">
+        </div>
+
+        <div class="from-group">
+            <label for="">รหัสประจำตัวพนักงาน *</label>
+            <input type="text" class="form-control" name = "ID_Employee" style="width:400px;">
+        </div>
+        
+        <div class="from-group">
+            <label for="">User (เพื่อเข้าใช้ pos) *</label>
+            <input type="text" class="form-control" name = "User" style="width:300px;">
+        </div>
+        
+        <div class="from-group">
+            <label for="">Password *</label>
+            <input type="text" class="form-control" name = "Password" style="width:300px;">
+        </div>
+        
+        <div class="from-group">
+            <label for="">ที่อยู่ปัจจุบันเลขที่/หมู่ที่/ตำบล/อำเภอ/จังหวัด *</label>
+            <input type="text" class="form-control" name = "Address" style="width:800px;">
+        </div>
+        
+        <label for="">ตำแหน่ง *</label>   
+         <select class="form-select" aria-label="Default select example" style="width:200px;">
+        <option selected><h4>select</h4></option>
+        <option value="1">เจ้าของบริษัท</option>
+        <option value="2">ผู้จัดการสาขา</option>
+        <option value="3">พนักงาน</option>
+        <option value="4">พนักงานในครัว</option>
+      </select>
+
+
+        
+        <div class="from-group">
+            <label for="">ค่าจ้างต่อวัน *</label>
+            <input type="text" class="form-control" name = "pay" style="width:200px;">
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email* </label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@gmail.com"
+            style="width:500px;">
+        </div>
+        
+        <div class="from-group">
+            <label for="">เบอร์โทรศัพท์ *</label>
+            <input type="text" class="form-control" name = "phone" style="width:300px;">
+        </div>
+        
+        
+        <div class="from-group">
+            <label for="">ธนาคารที่ใช้ *</label>
+            <input type="text" class="form-control" name = "bank" style="width:300px;">
+        </div>
+        
+        <div class="from-group">
+            <label for="">เลขบัญชี *</label>
+            <input type="text" class="form-control" name = "Bankaccount" style="width:300px;" >
+        </div>
+    </div>
+
+    
+        
+        <div class="row justify-content-between">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+            <input type="button" value="บันทึก" class ="btn btn-success">
+            <input type="button" value="ยกเลิก" class ="btn btn-danger">
+            </div>
+            </div>
+
+
+            
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+        crossorigin="anonymous"></script>
+    
+</body>
+</html>

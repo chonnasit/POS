@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Transfer_Success</title>
+    <style>
+        .btn1 {
+            height: 60px;
+            width: 130px;
+        }
+
+        .btn2 {
+            height: 50px;
+            width: 300px;
+        }
+
+        input {
+            height: 40px;
+            width: 110px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">POS</span>
+                <span class="navbar-brand mx-auto h1">ชำระเงินด้วยโอนเงิน</span>
+            </div>
+        </nav>
+    </header>
+    <div class="container bg-light">
+        <div class="row mt-5">
+            <div class="col-12 mx-auto text-center">
+                <img src="/image/checked.png" alt="" width="150px" height="150px">
+                <p class="fs-1">เงินทอน <span id="ans"></span> บาท</p>
+                <button class="btn btn-secondary" onclick="tip()">เงินทอนทั้งหมดเป็นทิปพนักงาน</button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col mx-auto text-center">
+                <label class="text-center text-secondary fs-2">จำนวนทิป </label>
+                <input class="text-center fs-5" type="number" value="0" id="tip"><label
+                    class="fs-2 text-secondary ms-2" for=""> บาท</label>
+            </div>
+
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success btn2">
+                    ยืนยัน
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script>
+        var tmp = localStorage.getItem("sum");
+        tmp = parseInt(tmp);
+        document.getElementById("ans").innerHTML = tmp//.toFixed(2);
+        function tip() {
+            var tmp = localStorage.getItem("sum");
+            tmp = parseInt(tmp);
+            document.getElementById("tip").value = tmp//.toFixed(2);
+
+        }
+
+    </script>
+</body>
+
+</html>
