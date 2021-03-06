@@ -14,6 +14,7 @@ def Forgetpassword(request):
 def Repassword(request):
     return render(request,'Repassword.html')
 def Tableroom(request):
+    i = 0
     if i == 0:
         email=request.POST['email']
         password= request.POST['password']

@@ -15,6 +15,7 @@
 
 <body>
   {% block content %}
+  {% for owner in posts %}
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -46,10 +47,10 @@
                 <tbody>
                     <tr>
                         <td>11.00</td>
-                        <td></td>
+                        <td>{{owner.id}}</td>
                         <td>100</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{owner.email}}</td>
+                        <td>{{owner.password}}</td>
                     </tr>
                     <tr>
                         <td>12.00</td>
@@ -169,6 +170,7 @@
                         <td>TOTAL</td>
                         <td>24</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
