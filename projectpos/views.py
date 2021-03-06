@@ -2,10 +2,11 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .models import Owners
 
 # Create your views here.
 #Start Tong
+i = 0
 def Login(request):
     return render(request,'Login.html')
 def Forgetpassword(request):
@@ -13,7 +14,17 @@ def Forgetpassword(request):
 def Repassword(request):
     return render(request,'Repassword.html')
 def Tableroom(request):
-    return render(request,'Tableroom.html')
+    if i == 0:
+        email=request.POST['email']
+        password= request.POST['password']
+        if Owners.objects.filter(email=email,password=password).exists():
+            i = 1
+            return render(request,'Tableroom.html')
+        else:
+
+            return render(request,'Login.html')
+    else :
+        return render(request,'Tableroom.html')
 def Kitchen(request):
     return render(request,'Kitchen.html')
 def Raw(request):

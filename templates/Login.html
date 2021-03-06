@@ -9,29 +9,27 @@
   </head>
   <body  style="background: #323444 ">
     <div style="margin:10%;margin-left:35%;margin-right:35%;">
-     <form  >
      <div class="card " style="border-radius:10px ; padding-Top:7%"  >
           <center><h3><U>Login</U></h3></center>
         <div class="card-body">
-          <form>
+          <form action="/Tableroom" method="post">
+              {% csrf_token %}
              <div class="form-group">
                      <h5>User</h5>
-                     <input type="email" class="form-control" placeholder="Enter email" id="exampleInputEmail1" />
+                     <input type="email" class="form-control" placeholder="Enter email" name="email" />
              </div>
              <br/>
              <div class="form-group">
                       <h5>Password</h5>
-                     <input type="password" class="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
+                     <input type="password" class="form-control" placeholder="Enter password" name="password"/>
              </div>
              <div class="form-group" align="right" style="padding:5%">
-                <button type="button" class="btn btn-success btn-block" ><a href="/Tableroom">Sign In</a></button>
+                <input type="submit" value="Singin" class="btn btn-primary" >
              </div>
                   <a href="/Forgetpassword">For get your password</a>
              </form>
             </div>
          </div>
-         </form>
-
          </div>
   </body>
 </html>
