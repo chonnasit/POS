@@ -3,16 +3,25 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Owners
+from .models import Table
 
 # Create your views here.
 #Start Tong
 i = 0
+log= []
 def Login(request):
     return render(request,'Login.html')
 def Forgetpassword(request):
     return render(request,'Forgetpassword.html')
 def Repassword(request):
     return render(request,'Repassword.html')
+def Re(request):
+    email=request.POST['email']
+    password= request.POST['password']
+    passwordnew = request.POST['passwordnew']
+    passwordnewre = request.POST['passwordnewre']
+    
+    return render(request,'Login.html')
 def Tableroom(request):
     i = 0
     if i == 0:
@@ -20,7 +29,8 @@ def Tableroom(request):
         password= request.POST['password']
         if Owners.objects.filter(email=email,password=password).exists():
             i = 1
-            return render(request,'Tableroom.html')
+            tables = Table.objects.all()
+            return render(request,'Tableroom.html',{'tables':tables})
         else:
 
             return render(request,'Login.html')

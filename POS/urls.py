@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'Kitchen', views.Kitchen),
     url(r'^Raw/', views.Raw),
     url(r'Rawmaterial/', views.Rawmaterial),
+    url(r'Re/',views.Re),
     #end Tong
     url(r'AddFood', views.AddFood),
     url(r'DeleteDrink', views.DeleteDrink),

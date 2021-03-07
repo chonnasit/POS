@@ -15,3 +15,11 @@ class Owners(models.Model):
     ID_card = models.CharField(max_length=13)
     ID_job= models.CharField(max_length=5)
     store_name= models.CharField(max_length=200)
+
+class Table(models.Model):
+    id  = models.AutoField(auto_created=True,primary_key=True)
+    number = models.CharField(max_length=3)
+    #type_order=models.CharField(max_length=200)
+    people = models.CharField(max_length=2)
+    time = models.CharField(max_length=10)
+    order = models.CharField(max_length=255)
