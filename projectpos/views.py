@@ -7,7 +7,6 @@ from .models import Table
 
 # Create your views here.
 #Start Tong
-i = 0
 log= []
 def Login(request):
     return render(request,'Login.html')
@@ -21,19 +20,18 @@ def Repassword(request):
     print(email)
     return render(request,'Repassword.html')
 def Tableroom(request):
-    i = 0
-    if i == 0:
-        email=request.POST['email']
-        password= request.POST['password']
-        if Owners.objects.filter(email=email,password=password).exists():
-            i = 1
-            tables = Table.objects.all()
-            return render(request,'Tableroom.html',{'tables':tables})
-        else:
+    email=request.POST.get('email')
+    password= request.POST.get('password')
+    if email != None:
+        log.append(email)
+        log.append(password)
+        print(log)
+    if Owners.objects.filter(email=log[0],password=log[1]).exists():
+        tables = Table.objects.all()
+        return render(request,'Tableroom.html',{'tables':tables})
+    else:
+        return render(request)
 
-            return render(request,'Login.html')
-    else :
-        return render(request,'Tableroom.html')
 def Kitchen(request):
     return render(request,'Kitchen.html')
 def Raw(request):
