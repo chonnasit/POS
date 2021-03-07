@@ -20,13 +20,6 @@ def Repassword(request):
     passwordnewre = request.POST.get('passwordnewre')
     print(email)
     return render(request,'Repassword.html')
-def Re(request):
-    email=request.POST['email']
-    password= request.POST['password']
-    passwordnew = request.POST['passwordnew']
-    passwordnewre = request.POST['passwordnewre']
-
-    return render(request,'Login.html')
 def Tableroom(request):
     i = 0
     if i == 0:
