@@ -96,7 +96,9 @@ def View_Employee(request):
 def Orderhis(request):
     return render(request,'Orderhis.html')
 def Report(request):
-    return render(request,'Report.html')
+    #Query Data From Model
+    data = Owners.objects.all()
+    return render(request,'Report.html',{'post':data})
 def Tipsd(request):
     return render(request,'Tipsd.html')
 #Stop Bank
