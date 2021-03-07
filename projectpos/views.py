@@ -14,13 +14,18 @@ def Login(request):
 def Forgetpassword(request):
     return render(request,'Forgetpassword.html')
 def Repassword(request):
+    email=request.POST.get('email')
+    password= request.POST.get('password')
+    passwordnew = request.POST.get('passwordnew')
+    passwordnewre = request.POST.get('passwordnewre')
+    print(email)
     return render(request,'Repassword.html')
 def Re(request):
     email=request.POST['email']
     password= request.POST['password']
     passwordnew = request.POST['passwordnew']
     passwordnewre = request.POST['passwordnewre']
-    
+
     return render(request,'Login.html')
 def Tableroom(request):
     i = 0
