@@ -41,15 +41,8 @@ def Rawmaterial(request):
 #End  Tong
 
 #Start Top
-    fn=request.POST.get('abcdef',False)
-    print(request)
-    print(fn)
-    if(fn != False):
-        addtypefood=AddTypeFood.objects.create(Ftype = fn)
-        addtypefood.save()
-    
-    data=AddTypeFood.objects.all()
-    return render(request,'addFood.html',{'posts':data})
+def AddMenu(request):
+    return render(request,'AddMenu.html')
 def DeleteDrink(request):
     return render(request,'deleteDrink.html')
 def DeleteFood(request):
