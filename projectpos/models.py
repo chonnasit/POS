@@ -47,6 +47,12 @@ class food(models.Model):
     time = models.IntegerField()
     image = models.CharField(max_length=255)
 
+class Orderlish(models.Model):
+    List_ID = models.AutoField(auto_created=True,primary_key=True)
+    types_order = models.TextField(max_length=255)
+    number_order = models.TextField(max_length=255)
+    number_table = models.TextField(max_length=255)
+    status = models.TextField(max_length=3)
 class Order(models.Model):
     Order_number = models.IntegerField(auto_created=True,primary_key=True)
     list = models.TextField(max_length=255)
