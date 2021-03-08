@@ -57,14 +57,14 @@ class Order(models.Model):
     List_ID = models.IntegerField()
 
 class Orderlish(models.Model):
-    List_ID = models.AutoField(auto_created=True)
+    #List_ID = models.AutoField(auto_created=True)
     types_order = models.TextField(max_length=255)
     number_order = models.TextField(max_length=255)
     number_table = models.TextField(max_length=255)
     status = models.TextField(max_length=3)
 
 class receipt(models.Model):
-	id = models.IntegerField()
+	#id = models.IntegerField()
 	order = models.TextField(max_length=255)
 	number = models.IntegerField()
 	time = models.IntegerField()
