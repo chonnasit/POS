@@ -5,6 +5,8 @@ from django.shortcuts import render
 from .models import Owners
 from .models import Table
 
+from .models import Order
+from .models import Tip
 # Create your views here.
 #Start Tong
 log= []
@@ -85,13 +87,17 @@ def View_Employee(request):
 
 #Start Bank
 def Orderhis(request):
-    return render(request,'Orderhis.html')
+    order = Order.objects.all()
+    return render(request,'Orderhis.html',{'order':order})
+
 def Report(request):
     #Query Data From Model
-    data = Owners.objects.all()
-    return render(request,'Report.html',{'post':data})
+    report = Owners.objects.all()
+    return render(request,'Report.html',{'report':report})
+
 def Tipsd(request):
-    return render(request,'Tipsd.html')
+    tips = Tip.objects.all()
+    return render(request,'Tipsd.html',{'tips':tips})
 #Stop Bank
 
 #start Kris

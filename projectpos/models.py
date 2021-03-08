@@ -33,11 +33,11 @@ class Employee(models.Model):
     phone = models.CharField(max_length=10)
     address = models.CharField(max_length=255)
     jobposition = models.CharField(max_length=255)
-    ID_card  = models.CharField(max_length=255)
-    ID_job = models.CharField(max_length=255)
-    ID_bank = models.CharField(max_length=255)
+    ID_card  = models.CharField(max_length=20)
+    ID_job = models.CharField(max_length=20)
+    ID_bank = models.CharField(max_length=20)
     Bank = models.CharField(max_length=255)
-    Salary = models.CharField(max_length=255)
+    Salary = models.IntegerField()
 
 class food(models.Model):
     id  = models.AutoField(auto_created=True,primary_key=True)
@@ -48,13 +48,14 @@ class food(models.Model):
     image = models.CharField(max_length=255)
 
 class Order(models.Model):
-    Order_number = models.IntegerField()
+    Order_number = models.IntegerField(auto_created=True,primary_key=True)
     list = models.TextField(max_length=255)
     priceorder = models.IntegerField()
     number = models.IntegerField()
     price = models.IntegerField()
     type_food = models.TextField(max_length=255)
-    List_ID = models.IntegerField()
+    #List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
+
 
 class Orderlish(models.Model):
     #List_ID = models.AutoField(auto_created=True)
@@ -69,3 +70,10 @@ class receipt(models.Model):
 	number = models.IntegerField()
 	time = models.IntegerField()
 	manager = models.TextField(max_length=255)
+
+class Tip(models.Model):
+    order_number = models.IntegerField()
+    time_day = models.CharField(max_length=255)
+    tip_cash = models.IntegerField()
+    tip_tran =models.IntegerField()
+    tip_total = models.IntegerField()
