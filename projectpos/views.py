@@ -32,11 +32,7 @@ def Tableroom(request):
         tables = Table.objects.all()
         return render(request,'Tableroom.html',{'tables':tables})
     else:
-<<<<<<< HEAD
         return render(request,'Login.html')
-=======
-        return render(request,'Tableroom.html') # แก้เองนะ
->>>>>>> 2921bfe1a6d256f977bac0f535cfc1b72f1768d6
 
 def Kitchen(request):
     return render(request,'Kitchen.html')
