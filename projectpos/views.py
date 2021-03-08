@@ -30,7 +30,7 @@ def Tableroom(request):
         tables = Table.objects.all()
         return render(request,'Tableroom.html',{'tables':tables})
     else:
-        return render(request)
+        return render(request,'Login.html')
 
 def Kitchen(request):
     return render(request,'Kitchen.html')

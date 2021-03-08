@@ -33,11 +33,11 @@ class Employee(models.Model):
     phone = models.CharField(max_length=10)
     address = models.CharField(max_length=255)
     jobposition = models.CharField(max_length=255)
-    ID_card  = models.CharField(max_length=255)
-    ID_job = models.CharField(max_length=255)
-    ID_bank = models.CharField(max_length=255)
+    ID_card  = models.CharField(max_length=20)
+    ID_job = models.CharField(max_length=20)
+    ID_bank = models.CharField(max_length=20)
     Bank = models.CharField(max_length=255)
-    Salary = models.CharField(max_length=255)
+    Salary = models.IntegerField()
 
 class food(models.Model):
     id  = models.AutoField(auto_created=True,primary_key=True)
@@ -47,24 +47,25 @@ class food(models.Model):
     time = models.IntegerField()
     image = models.CharField(max_length=255)
 
+class Orderlish(models.Model):
+    List_ID = models.AutoField(auto_created=True,primary_key=True)
+    types_order = models.TextField(max_length=255)
+    number_order = models.TextField(max_length=255)
+    number_table = models.TextField(max_length=255)
+    status = models.TextField(max_length=3)
 class Order(models.Model):
-    Order_number = models.IntegerField()
+    Order_number = models.IntegerField(auto_created=True,primary_key=True)
     list = models.TextField(max_length=255)
     priceorder = models.IntegerField()
     number = models.IntegerField()
     price = models.IntegerField()
     type_food = models.TextField(max_length=255)
-    List_ID = models.IntegerField()
+    List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
 
-class Orderlish(models.Model):
-    List_ID = models.AutoField(auto_created=True)
-    types_order = models.TextField(max_length=255)
-    number_order = models.TextField(max_length=255)
-    number_table = models.TextField(max_length=255)
-    status = models.TextField(max_length=3)
+
 
 class receipt(models.Model):
-	id = models.IntegerField()
+	id = models.IntegerField(auto_created=True,primary_key=True)
 	order = models.TextField(max_length=255)
 	number = models.IntegerField()
 	time = models.IntegerField()
