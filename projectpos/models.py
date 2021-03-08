@@ -63,15 +63,9 @@ class Order(models.Model):
     #List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
 
 
-class Orderlish(models.Model):
-    #List_ID = models.AutoField(auto_created=True)
-    types_order = models.TextField(max_length=255)
-    number_order = models.TextField(max_length=255)
-    number_table = models.TextField(max_length=255)
-    status = models.TextField(max_length=3)
 
 class receipt(models.Model):
-	#id = models.IntegerField()
+	id = models.IntegerField(auto_created=True,primary_key=True)
 	order = models.TextField(max_length=255)
 	number = models.IntegerField()
 	time = models.IntegerField()
