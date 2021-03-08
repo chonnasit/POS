@@ -30,7 +30,11 @@ def Tableroom(request):
         tables = Table.objects.all()
         return render(request,'Tableroom.html',{'tables':tables})
     else:
+<<<<<<< HEAD
         return render(request,'Login.html')
+=======
+        return render(request,'Tableroom.html') # แก้เองนะ
+>>>>>>> 2921bfe1a6d256f977bac0f535cfc1b72f1768d6
 
 def Kitchen(request):
     return render(request,'Kitchen.html')
@@ -41,8 +45,8 @@ def Rawmaterial(request):
 #End  Tong
 
 #Start Top
-def AddFood(request):
-    return render(request,'addFood.html')
+def AddMenu(request):
+    return render(request,'AddMenu.html')
 def DeleteDrink(request):
     return render(request,'deleteDrink.html')
 def DeleteFood(request):
@@ -93,3 +97,24 @@ def Report(request):
 def Tipsd(request):
     return render(request,'Tipsd.html')
 #Stop Bank
+
+#start Kris
+def AddMenu(request):
+    return render(request,'AddMenu.html')
+def AddTable(request):
+    return render(request,'AddTable.html')
+def BillSetting(request):
+    return render(request,'BillSetting.html')
+def BuyFoodBackHome(request):
+    return render(request,'BuyFoodBackHome.html')
+def BuyMoreFood(request):
+    return render(request,'BuyMoreFood.html')
+def ChangeFood(request):
+    return render(request,'ChangeFood.html')
+def DeleteTable(request):
+    return render(request,'DeleteTable.html')
+def listCustomer(request):
+    data=ListCustomer.objects.all()
+    return render(request,'listCustomer.html',{'posts':data})
+
+#End Kris
