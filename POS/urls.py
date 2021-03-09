@@ -56,5 +56,13 @@ urlpatterns = [
     url(r'Report', views.Report),
     url(r'Tipsd', views.Tipsd),
     #end Bank
+    url(r'AddMenu',views.AddMenu),
+    url(r'BillSetting', views.BillSetting),
+    url(r'BuyFoodBackHome', views.BuyFoodBackHome),
+    url(r'BuyMoreFood', views.BuyMoreFood),
+    url(r'ChangeFood', views.ChangeFood),
+    url(r'DeleteTable', views.DeleteTable),
+    url(r'listCustomer', views.listCustomer),
+    #end Kris
 ]
 urlpatterns += staticfiles_urlpatterns()
