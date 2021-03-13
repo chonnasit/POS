@@ -17,7 +17,10 @@ def Repassword(request):
     password= request.POST.get('password')
     passwordnew = request.POST.get('passwordnew')
     passwordnewre = request.POST.get('passwordnewre')
-    print(email)
+    if passwordnew == passwordnewre:
+        p = Owners.objects.get(email=email,password=password)
+        p.password = passwordnew
+        p.save()
     return render(request,'Repassword.html')
 def Tableroom(request):
     email=request.POST.get('email')
@@ -30,11 +33,8 @@ def Tableroom(request):
         tables = Table.objects.all()
         return render(request,'Tableroom.html',{'tables':tables})
     else:
-<<<<<<< HEAD
         return render(request,'Login.html')
-=======
-        return render(request,'Tableroom.html') # แก้เองนะ
->>>>>>> 2921bfe1a6d256f977bac0f535cfc1b72f1768d6
+
 
 def Kitchen(request):
     return render(request,'Kitchen.html')
