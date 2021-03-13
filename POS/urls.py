@@ -56,7 +56,7 @@ urlpatterns = [
     url(r'Report', views.Report),
     url(r'Tipsd', views.Tipsd),
     #end Bank
-    url(r'AddMenu',views.AddMenu),
+    url(r'AddMenu',views.AddFoodMenu),
     url(r'BillSetting', views.BillSetting),
     url(r'BuyFoodBackHome', views.BuyFoodBackHome),
     url(r'BuyMoreFood', views.BuyMoreFood),

@@ -7,6 +7,7 @@ from .models import Table
 
 from .models import Order
 from .models import Tip
+from .models import Orderlish
 # Create your views here.
 #Start Tong
 log= []
@@ -44,7 +45,17 @@ def Rawmaterial(request):
 
 #Start Top
 def AddMenu(request):
-    return render(request,'AddMenu.html')
+    
+
+    fn=request.POST.get('abcdef',False)
+    print(request)
+    print(fn)
+    if(fn != False):
+        addtypefood=Order.objects.create(Ftype = fn)
+        addtypefood.save()
+    
+    data=Order.objects.all()
+    return render(request,'AddMenu.html',{'posts':data})
 def DeleteDrink(request):
     return render(request,'deleteDrink.html')
 def DeleteFood(request):
@@ -116,7 +127,7 @@ def ChangeFood(request):
 def DeleteTable(request):
     return render(request,'DeleteTable.html')
 def listCustomer(request):
-    data=ListCustomer.objects.all()
+    data=Orderlish.objects.all()
     return render(request,'listCustomer.html',{'posts':data})
 
 #End Kris

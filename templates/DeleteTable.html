@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+          crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="assets/css/simple-sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Rowdies"
+          rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+    <!-- Bootstrap icon CSS -->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css"
+          rel="stylesheet"
+          type="text/css" />
+    <title>ลบโต้ะ</title>
+
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+
+        <div class="bgc" id="sidebar-wrapper">
+            <div class="sidebar-heading" style="text-align: center">
+                <a style="font-size: 24px; color: white" href="#"> POS </a>
+                <div class="inner" style="text-align: center"></div>
+            </div>
+            <div class="list-group">
+                <a href=""
+                   class="list-group-item list-group-item-action"
+                   style="border: none">
+                    จัดการที่นั่ง
+                </a>
+                <li class="active">
+                    <a href="#orderSubmenu"
+                       class="list-group-item list-group-item-action"
+                       style="border: none"
+                       data-toggle="collapse"
+                       aria-expanded="false"
+                       class="dropdown-toggle">สั่งและชำระ</a>
+                    <ul class="collapse list-unstyled" id="orderSubmenu">
+                        <li>
+                            <a href="#">-ของหวาน</a>
+                        </li>
+                        <li>
+                            <a href="#">-เครื่องดื่ม</a>
+                        </li>
+                        <li>
+                            <a href="#">-ไอศครีม</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <a href="" class="list-group-item list-group-item-action">
+                    ออเดอร์ที่เปิดอยู่
+                </a>
+                <a href="" class="list-group-item list-group-item-action">
+                    ประวัติใบเสร็จ
+                </a>
+                <a href="" class="list-group-item list-group-item-action">
+                    จัดการครัว
+                </a>
+                <li class="active">
+                    <a href="#saleSubmenu"
+                       class="list-group-item list-group-item-action"
+                       style="border: none"
+                       data-toggle="collapse"
+                       aria-expanded="false"
+                       class="dropdown-toggle">รายงาน</a>
+                    <ul class="collapse list-unstyled" id="saleSubmenu">
+                        <li>
+                            <a href="#">-สรุปยอดขาย</a>
+                        </li>
+                        <li>
+                            <a href="#">-รายการทิป</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#settingSubmenu"
+                       class="list-group-item list-group-item-action"
+                       style="border: none"
+                       data-toggle="collapse"
+                       aria-expanded="false"
+                       class="dropdown-toggle">ตั้งค่า</a>
+                    <ul class="collapse list-unstyled" id="settingSubmenu">
+                        <li>
+                            <a href="#">-เพิ่มประเภทอาหาร</a>
+                        </li>
+                        <li>
+                            <a href="#">-แก้ไขเมนูที่สั่งผิด</a>
+                        </li>
+                        <li>
+                            <a href="#">-เพิ่มเมนู</a>
+                        </li>
+                        <li>
+                            <a href="#">-ลบเมนู</a>
+                        </li>
+                        <li>
+                            <a href="#">-เพิ่มจำนวนที่นั่ง</a>
+                        </li>
+                        <li>
+                            <a href="#">-ลบจำนวนที่นั่ง</a>
+                        </li>
+                        <li>
+                            <a href="#">-ตั้งค่าใบเสร็จ</a>
+                        </li>
+                        <li>
+                            <a href="#">-เปลี่ยนรหัสผ่าน</a>
+                        </li>
+                        <li>
+                            <a href="#">-จัดการพนักงาน</a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <p style="text-align: center; margin: auto">ลบโต้ะ</p>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row" style="margin-top:80px;margin-left:0px">
+                    <div>
+                        <div class="bd-example">
+                            <div class="row  row-cols-1 row-cols-md-2 g-4">
+                                <button type="button" id="" class="btn btn-labeled" onclick="alert()">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                โต้ะ001
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer text-muted">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                                <button type="button" id="" class="btn btn-labeled" onclick="alert()">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                โต้ะ002
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer text-muted">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                                <button type="button" id="" class="btn btn-labeled" onclick="alert()">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                โต้ะ003
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer text-muted">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                                <button type="button" id="" class="btn btn-labeled" onclick="alert()">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                โต้ะ004
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer text-muted">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+                crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+        <script>
+            function alert() {
+
+                Swal.fire({
+                    title: 'ยืนยันการทำรายการ',
+
+                    icon: 'warning',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonText: 'ยกเลิก',
+                    confirmButtonText: 'ยืนยัน'
+
+                })
+            }
+        </script>
+
+            <script>
+                                function myFunction() {
+                                document.getElementById("demo").innerHTML = "อยากลบโต้ะจัง";
+                                }
+            </script>
+</body>
+</html>

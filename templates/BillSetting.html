@@ -1,0 +1,112 @@
+﻿{% extends 'Tableroom.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+          crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="assets/css/simple-sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Rowdies"
+          rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+    <!-- Bootstrap icon CSS -->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css"
+          rel="stylesheet"
+          type="text/css" />
+    <title>ตั้งค่าใบเสร็จ</title>
+</head>
+<body>
+    {% block content %}
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+
+        
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <p style="text-align: center; margin: auto">ตั้งค่าใบเสร็จ</p>
+                </div>
+            </nav>
+            {% csrf_token %}
+            <div class="container" style="margin-top:10px">
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">ชื่อร้าน <a class="text-danger">*</a></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="StoreName">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">ภาษี(VAT) <a class="text-danger">*</a></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="VAT">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Service  charge <a class="text-danger">*</a></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="SC">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">คำปิดท้ายใบเสร็จ <a class="text-danger">*</a></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="EndTextBill">
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success ms-5" onclick="alert()">
+                            ยืนยัน
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function alert() {
+                Swal.fire(
+                    {
+                        title: 'สำเร็จ',
+
+                        showConfirmButton: false,
+                        timer: 1500
+                    }
+                                            }
+        </script>
+
+
+
+
+</body>
+</html>
