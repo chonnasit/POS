@@ -36,10 +36,6 @@ def Tableroom(request):
         return render(request,'Tableroom.html',{'tables':tables})
     else:
         return render(request,'Login.html')
-<<<<<<< HEAD
-
-=======
->>>>>>> 1bf82a298f5c4ceaacf1b831c2728104dd7a395a
 
 def Kitchen(request):
     return render(request,'Kitchen.html')
