@@ -60,7 +60,7 @@ class Order(models.Model):
     number = models.IntegerField()
     price = models.IntegerField()
     type_food = models.TextField(max_length=255)
-    List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
+    #List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
 
 
 
@@ -78,3 +78,10 @@ class receipt(models.Model):
 	number = models.IntegerField()
 	time = models.IntegerField()
 	manager = models.TextField(max_length=255)
+
+class Tip(models.Model):
+    order_number = models.IntegerField()
+    time_day = models.CharField(max_length=255)
+    tip_cash = models.IntegerField()
+    tip_tran =models.IntegerField()
+    tip_total = models.IntegerField()
