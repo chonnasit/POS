@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>Login</title>
+
+   
   </head>
   <body  style="background: #323444 ">
+    {% if alert_flag %}
+    <script>alert("เช็คUser หรือ Password อีกที")</script>  
+{% endif %}
     <div style="margin:10%;margin-left:35%;margin-right:35%;">
      <div class="card " style="border-radius:10px ; padding-Top:7%"  >
           <center><h3><U>Login</U></h3></center>

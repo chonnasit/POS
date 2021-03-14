@@ -59,11 +59,14 @@ def Tableroom(request):
         log.append(email)
         log.append(password)
         print(log)
+
     if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
         return render(request, 'Tableroom.html', {'tables': tables})
     else:
-        return render(request, 'Login.html')
+        log.remove(log[0])
+        log.remove(log[0])
+        return render(request, 'Login.html',  {'alert_flag': True})
 
 
 def Kitchen(request):
