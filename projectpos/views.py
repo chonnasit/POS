@@ -58,8 +58,6 @@ def Tableroom(request):
     if email != None:
         log.append(email)
         log.append(password)
-        print(log)
-
     if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
         return render(request, 'Tableroom.html', {'tables': tables})
@@ -101,6 +99,10 @@ def Deleteice(request):
 
 
 def Drink(request):
+    tableadd = request.POST.get('product', "a")
+    Q = request.POST.get('Q', " None")
+    print(tableadd)
+    print(Q)
     return render(request, 'Drink.html')
 
 
