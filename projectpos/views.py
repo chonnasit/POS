@@ -4,122 +4,209 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Owners
 from .models import Table
-
+from django.core.mail import send_mail
 from .models import Order
 from .models import Tip
+
 # Create your views here.
-#Start Tong
-log= []
+# Start Tong
+log = []
+
+
 def Login(request):
-    return render(request,'Login.html')
+    return render(request, 'Login.html')
+
+
 def Forgetpassword(request):
-    return render(request,'Forgetpassword.html')
+    email = request.POST.get('email', "x")
+    idcard = request.POST.get('idcard', "x")
+   # p = Owners.objects.get(email=email, ID_card=idcard)
+    # if p == True:
+    # send_mail('Thank you for registering to our site', p.password,
+    #        'chonnasit.s@ku.th', ['tong25658@gmail.com'], fail_silently=False)
+
+    return render(request, 'Forgetpassword.html')
+
+
+def sub(request):
+    email = request.POST.get('email')
+    idcard = request.POST.get('idcard')
+
+    p = Owners.objects.get(email=email, ID_card=idcard)
+    print(p)
+    if p:
+        send_mail('Thank you for registering to our site', p.password,
+                  'chonnasit.s@ku.th', ['tong25658@gmail.com'], fail_silently=False)
+    return render(request, 'Login.html')
+
+
 def Repassword(request):
-    email=request.POST.get('email')
-    password= request.POST.get('password')
-    passwordnew = request.POST.get('passwordnew')
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    passwordnew = request.POST.get('passwordnew', "d")
     passwordnewre = request.POST.get('passwordnewre')
     if passwordnew == passwordnewre:
-        p = Owners.objects.get(email=email,password=password)
+        p = Owners.objects.get(email=email, password=password)
         p.password = passwordnew
         p.save()
-    return render(request,'Repassword.html')
+    return render(request, 'Repassword.html')
+
+
 def Tableroom(request):
-    email=request.POST.get('email')
-    password= request.POST.get('password')
+    email = request.POST.get('email')
+    password = request.POST.get('password')
     if email != None:
         log.append(email)
         log.append(password)
         print(log)
-    if Owners.objects.filter(email=log[0],password=log[1]).exists():
+    if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
-        return render(request,'Tableroom.html',{'tables':tables})
+        return render(request, 'Tableroom.html', {'tables': tables})
     else:
-        return render(request,'Login.html')
+        return render(request, 'Login.html')
+
 
 def Kitchen(request):
-    return render(request,'Kitchen.html')
+    return render(request, 'Kitchen.html')
+
+
 def Raw(request):
-    return render(request,'Raw.html')
+    return render(request, 'Raw.html')
+
+
 def Rawmaterial(request):
-    return render(request,'Rawmaterial.html')
-#End  Tong
+    return render(request, 'Rawmaterial.html')
+# End  Tong
 
-#Start Top
+# Start Top
+
+
 def AddMenu(request):
-    return render(request,'AddMenu.html')
+    return render(request, 'AddMenu.html')
+
+
 def DeleteDrink(request):
-    return render(request,'deleteDrink.html')
+    return render(request, 'deleteDrink.html')
+
+
 def DeleteFood(request):
-    return render(request,'deleteFood.html')
+    return render(request, 'deleteFood.html')
+
+
 def Deleteice(request):
-    return render(request,'deleteice.html')
+    return render(request, 'deleteice.html')
+
+
 def Drink(request):
-    return render(request,'Drink.html')
+    return render(request, 'Drink.html')
+
+
 def Food(request):
-    return render(request,'food.html')
+    return render(request, 'food.html')
+
+
 def Ice_Cream(request):
-    return render(request,'Ice cream.html')
+    return render(request, 'Ice cream.html')
+
+
 def SellectCategory(request):
-    return render(request,'sellectCategory.html')
-#End top
+    return render(request, 'sellectCategory.html')
+# End top
 
-#Start Frong
+# Start Frong
+
+
 def Cash(request):
-    return render(request,'Cash.html')
+    return render(request, 'Cash.html')
+
+
 def Cash_Success(request):
-    return render(request,'Cash_Success.html')
+    return render(request, 'Cash_Success.html')
+
+
 def Transfer(request):
-    return render(request,'Transfer.html')
+    return render(request, 'Transfer.html')
+
+
 def Transfer_Success(request):
-    return render(request,'Transfer_Success.html')
-#End Frong
+    return render(request, 'Transfer_Success.html')
+# End Frong
 
-#start Tomtam
+# start Tomtam
+
+
 def Add_Employee(request):
-    return render(request,'Add_Employee.html')
-def Edit_Food(request):
-    return render(request,'edit_food.html')
-def Edit_Employee(request):
-    return render(request,'edit_Employee.html')
-def Employee_list(request):
-    return render(request,'Employee_list.html')
-def View_Employee(request):
-    return render(request,'view_Employee.html')
-#End Tomtam
+    return render(request, 'Add_Employee.html')
 
-#Start Bank
+
+def Edit_Food(request):
+    return render(request, 'edit_food.html')
+
+
+def Edit_Employee(request):
+    return render(request, 'edit_Employee.html')
+
+
+def Employee_list(request):
+    return render(request, 'Employee_list.html')
+
+
+def View_Employee(request):
+    return render(request, 'view_Employee.html')
+# End Tomtam
+
+# Start Bank
+
+
 def Orderhis(request):
     order = Order.objects.all()
-    return render(request,'Orderhis.html',{'order':order})
+    return render(request, 'Orderhis.html', {'order': order})
+
 
 def Report(request):
-    #Query Data From Model
+    # Query Data From Model
     report = Owners.objects.all()
-    return render(request,'Report.html',{'report':report})
+    return render(request, 'Report.html', {'report': report})
+
 
 def Tipsd(request):
     tips = Tip.objects.all()
-    return render(request,'Tipsd.html',{'tips':tips})
-#Stop Bank
+    return render(request, 'Tipsd.html', {'tips': tips})
+# Stop Bank
 
-#start Kris
+# start Kris
+
+
 def AddMenu(request):
-    return render(request,'AddMenu.html')
-def AddTable(request):
-    return render(request,'AddTable.html')
-def BillSetting(request):
-    return render(request,'BillSetting.html')
-def BuyFoodBackHome(request):
-    return render(request,'BuyFoodBackHome.html')
-def BuyMoreFood(request):
-    return render(request,'BuyMoreFood.html')
-def ChangeFood(request):
-    return render(request,'ChangeFood.html')
-def DeleteTable(request):
-    return render(request,'DeleteTable.html')
-def listCustomer(request):
-    data=ListCustomer.objects.all()
-    return render(request,'listCustomer.html',{'posts':data})
+    return render(request, 'AddMenu.html')
 
-#End Kris
+
+def AddTable(request):
+    return render(request, 'AddTable.html')
+
+
+def BillSetting(request):
+    return render(request, 'BillSetting.html')
+
+
+def BuyFoodBackHome(request):
+    return render(request, 'BuyFoodBackHome.html')
+
+
+def BuyMoreFood(request):
+    return render(request, 'BuyMoreFood.html')
+
+
+def ChangeFood(request):
+    return render(request, 'ChangeFood.html')
+
+
+def DeleteTable(request):
+    return render(request, 'DeleteTable.html')
+
+
+def listCustomer(request):
+    data = ListCustomer.objects.all()
+    return render(request, 'listCustomer.html', {'posts': data})
+
+# End Kris
