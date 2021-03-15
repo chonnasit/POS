@@ -60,7 +60,6 @@ def Tableroom(request):
         log.append(password)
     if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
-
         return render(request, 'Tableroom.html', {'tables': tables})
     else:
         log.remove(log[0])

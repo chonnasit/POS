@@ -23,13 +23,13 @@ class Table(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
     number = models.CharField(max_length=3)
     Quantity = models.CharField(max_length=5)
-    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
+    Order_id = models.TextField(max_length=255)
     status_table = models.CharField(max_length=255)
 
 
 class Q(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
+    Order_id = models.TextField(max_length=255)
 
 
 class Employee(models.Model):
