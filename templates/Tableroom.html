@@ -181,7 +181,10 @@
           <div class="container-fluid dashboard-content " style="padding-bottom:2%" >
 
           <div  style="padding-right:2%" align="right">
-            <a href="Rawmaterial"><button type="button" class="btn btn-dark btn-block"  style="background:#323444"> สั่งกลับบ้าน </button></a>
+            <form action="/Foods" method="post">
+              {% csrf_token %}
+               <button type="submit"  name="typeorder"  value="Home" class="btn btn-dark btn-block"  style="background:#323444"> สั่งกลับบ้าน </button>
+            </form>
           </div>
         </div>
 

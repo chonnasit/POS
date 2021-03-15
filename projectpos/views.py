@@ -103,10 +103,12 @@ def Drink(request):
 
 
 def Food(request):
-    tableadd = request.POST.get('product', "a")
+    tableadd = request.POST.get('product', "No Table")
     Q = request.POST.get('Q', " None")
+    typeorder = request.POST.get('typeorder', "Restaurant")
     print(tableadd)
     print(Q)
+    print(typeorder)
     return render(request, 'food.html')
 
 
