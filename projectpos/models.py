@@ -60,6 +60,7 @@ class Menu(models.Model):
     foodname = models.CharField(max_length=255)
     price = models.IntegerField()
     image = models.CharField(max_length=255)
+    status_menu = models.CharField(max_length=5)
 
 
 class Order(models.Model):
