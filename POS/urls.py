@@ -19,7 +19,7 @@ from projectpos import views
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-from django.urls import path
+#from django.urls import path
 urlpatterns = [
 
     #url(r'^admin/', admin.site.urls),
@@ -64,7 +64,7 @@ urlpatterns = [
     url(r'ChangeFood', views.ChangeFood),
     url(r'DeleteTable', views.DeleteTable),
     url(r'listCustomer', views.listCustomer),
-    path(r'Delete/<int:id>', views.DelTable),
+    # path(r'Delete/<int:id>', views.DelTable),
     # end Kris
 
 ]
