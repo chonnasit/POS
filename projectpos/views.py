@@ -8,6 +8,8 @@ from .models import Table
 from .models import Order
 from .models import Tip
 from .models import Orderlish
+from .models import Table
+
 # Create your views here.
 #Start Tong
 log= []
@@ -44,7 +46,7 @@ def Rawmaterial(request):
 #End  Tong
 
 #Start Top
-def AddMenu(request):
+def AddFood(request):
     
 
     fn=request.POST.get('abcdef',False)
@@ -55,7 +57,7 @@ def AddMenu(request):
         addtypefood.save()
     
     data=Order.objects.all()
-    return render(request,'AddMenu.html',{'posts':data})
+    return render(request,'addMenu.html',{'posts':data})
 def DeleteDrink(request):
     return render(request,'deleteDrink.html')
 def DeleteFood(request):
@@ -112,11 +114,26 @@ def Tipsd(request):
 #Stop Bank
 
 #start Kris
-def AddMenu(request):
+def AddFoodMenu(request):
     return render(request,'AddMenu.html')
+    
 def AddTable(request):
+    A=request.POST.get('NumberofTable',False)
+    B=request.POST.get('QuantityofTable',False)
+    if(A!= False and B!= False ):
+        BillSet=Table.objects.create(number = A,Quantity = B)
+        BillSet.save()
+    data=Table.objects.all()
     return render(request,'AddTable.html')
 def BillSetting(request):
+    A=request.POST.get('StoreName',False)
+    B=request.POST.get('VAT',False)
+    C=request.POST.get('SC',False)
+    D=request.POST.get('EndTextBill',False)
+    if(A!= False and B!= False and C!= False and D!= False):
+        BillSet=Orderlish.objects.create(types_order = A,number_order = B,number_table = C,status = D)
+        BillSet.save()
+    data=Orderlish.objects.all()
     return render(request,'BillSetting.html')
 def BuyFoodBackHome(request):
     return render(request,'BuyFoodBackHome.html')

@@ -47,8 +47,6 @@
     {% block content %}
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-
-        
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -86,13 +84,13 @@
 
                 <div class="mb-3 row">
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success ms-5" onclick="alert()">
-                            ยืนยัน
-                        </button>
+                        <input type="submit" data-dismiss="modal" class="btn btn-default bg-dark" style="color: white;margin-right:10px" onclick="alert()" value="บันทึกข้อมูล">
+                        
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <script>
             function alert() {
                 Swal.fire(

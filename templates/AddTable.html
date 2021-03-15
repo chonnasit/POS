@@ -1,4 +1,5 @@
-﻿{% load static %}
+﻿{% extends 'Tableroom.html' %}
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -44,103 +45,7 @@
 </head>
 <body>
     <div class="d-flex" id="wrapper">
-        <!-- Sidebar -->
-
-        <div class="bgc" id="sidebar-wrapper">
-            <div class="sidebar-heading" style="text-align: center">
-                <a style="font-size: 24px; color: white" href="#"> POS </a>
-                <div class="inner" style="text-align: center"></div>
-            </div>
-            <div class="list-group">
-                <a href=""
-                   class="list-group-item list-group-item-action"
-                   style="border: none">
-                    จัดการที่นั่ง
-                </a>
-                <li class="active">
-                    <a href="#orderSubmenu"
-                       class="list-group-item list-group-item-action"
-                       style="border: none"
-                       data-toggle="collapse"
-                       aria-expanded="false"
-                       class="dropdown-toggle">สั่งและชำระ</a>
-                    <ul class="collapse list-unstyled" id="orderSubmenu">
-                        <li>
-                            <a href="#">-ของหวาน</a>
-                        </li>
-                        <li>
-                            <a href="#">-เครื่องดื่ม</a>
-                        </li>
-                        <li>
-                            <a href="#">-ไอศครีม</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <a href="" class="list-group-item list-group-item-action">
-                    ออเดอร์ที่เปิดอยู่
-                </a>
-                <a href="" class="list-group-item list-group-item-action">
-                    ประวัติใบเสร็จ
-                </a>
-                <a href="" class="list-group-item list-group-item-action">
-                    จัดการครัว
-                </a>
-                <li class="active">
-                    <a href="#saleSubmenu"
-                       class="list-group-item list-group-item-action"
-                       style="border: none"
-                       data-toggle="collapse"
-                       aria-expanded="false"
-                       class="dropdown-toggle">รายงาน</a>
-                    <ul class="collapse list-unstyled" id="saleSubmenu">
-                        <li>
-                            <a href="#">-สรุปยอดขาย</a>
-                        </li>
-                        <li>
-                            <a href="#">-รายการทิป</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="#settingSubmenu"
-                       class="list-group-item list-group-item-action"
-                       style="border: none"
-                       data-toggle="collapse"
-                       aria-expanded="false"
-                       class="dropdown-toggle">ตั้งค่า</a>
-                    <ul class="collapse list-unstyled" id="settingSubmenu">
-                        <li>
-                            <a href="#">-เพิ่มประเภทอาหาร</a>
-                        </li>
-                        <li>
-                            <a href="#">-แก้ไขเมนูที่สั่งผิด</a>
-                        </li>
-                        <li>
-                            <a href="#">-เพิ่มเมนู</a>
-                        </li>
-                        <li>
-                            <a href="#">-ลบเมนู</a>
-                        </li>
-                        <li>
-                            <a href="#">-เพิ่มจำนวนที่นั่ง</a>
-                        </li>
-                        <li>
-                            <a href="#">-ลบจำนวนที่นั่ง</a>
-                        </li>
-                        <li>
-                            <a href="#">-ตั้งค่าใบเสร็จ</a>
-                        </li>
-                        <li>
-                            <a href="#">-เปลี่ยนรหัสผ่าน</a>
-                        </li>
-                        <li>
-                            <a href="#">-จัดการพนักงาน</a>
-                        </li>
-                    </ul>
-                </li>
-            </div>
-        </div>
+        {% block content %}
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -150,6 +55,7 @@
                 </div>
             </nav>
             <div class="row">
+                {% csrf_token %}
                 <div class="col"></div>
                 <div class="col-5">
                     <!-- Input Group with Multiple Filled Inputs -->
@@ -158,7 +64,7 @@
                             <span class="input-group-text" id="filled-mutliple-ig-label">เลขที่นั่ง</span>
                         </div>
                         <div class="pmd-textfield pmd-textfield-filled">
-                            <input type="text" class="form-control" aria-label="NumSit" aria-describedby="filled-mutliple-ig-label">
+                            <input type="text" class="form-control" aria-label="NumSit" id="NumberofTable" aria-describedby="filled-mutliple-ig-label">
                         </div>
 
                     </div>
@@ -169,7 +75,7 @@
                             <span class="input-group-text" id="filled-mutliple-ig-label">จำนวนคนนั่ง</span>
                         </div>
                         <div class="pmd-textfield pmd-textfield-filled">
-                            <input type="text" class="form-control" aria-label="NumWhosit" aria-describedby="filled-mutliple-ig-label">
+                            <input type="text" class="form-control" aria-label="NumWhosit" id="QuantityofTable" aria-describedby="filled-mutliple-ig-label">
                         </div>
 
                     </div>
@@ -178,14 +84,13 @@
             </div>
 
 
-            <center><a href="#" button type="button" class="btn pmd-ripple-effect btn-dark" style="margin-top:20px" onclick="alert()">ยืนยัน</a></center>
+            <center><input type="submit" data-dismiss="modal" class="btn btn-default bg-dark" style="color: white;margin-right:10px" value="บันทึกข้อมูล" onclick="alert()"></center>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
                     crossorigin="anonymous"></script>
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
             <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
             <script>
-                <script>
                     function alert() {
 
                         Swal.fire({
@@ -202,6 +107,6 @@
                     }
             </script>
         </div>
-
+    </div>
 </body>
 </html>

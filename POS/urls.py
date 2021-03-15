@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'Rawmaterial/', views.Rawmaterial),
     
     #end Tong
-    url(r'AddFood', views.AddMenu),
+    url(r'AddFood', views.AddFood),
     url(r'DeleteDrink', views.DeleteDrink),
     url(r'DeleteFood', views.DeleteFood),
     url(r'Deleteice', views.Deleteice),
