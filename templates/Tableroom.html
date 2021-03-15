@@ -98,7 +98,7 @@
             <a href="#orderSubmenu" class="list-group-item list-group-item-action" style="border: none" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">สั่งและชำระ</a>
             <ul class="collapse list-unstyled" id="orderSubmenu">
               <li>
-                <a style = "margin-left: 25px;" href="/Food">ของหวาน</a>
+                <a style = "margin-left: 25px;" href="/Foods">ของหวาน</a>
               </li>
               <li>
                 <a style = "margin-left: 25px;" href="/Drink">เครื่องดื่ม</a>
@@ -190,10 +190,10 @@
          <ul>
            {% for a in tables %}
            <label>
-             <form action="/Drink" method="post">
+             <form action="/Foods" method="post">
               {% csrf_token %}
             <input type="radio" name="product" id={{a.id}} value={{a.number}} class="card-input-element" />
-              <div class="panel panel-default card-input">
+              <div class="panel panel-default card-input" >
                 <li style="margin-bottom:10%" id={{a.id}}>
                   <div class="card ">
                     <div class="card-header" style="background:#323444;color:white">
@@ -303,7 +303,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">รอคิว</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="/Drink" method="post">
+                      <form action="/Foods" method="post">
                         {% csrf_token %}
                       <div class="modal-body">
                         <div >

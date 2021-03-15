@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'DeleteFood', views.DeleteFood),
     url(r'Deleteice', views.Deleteice),
     url(r'Drink', views.Drink),
-    url(r'Food/', views.Food),
+    url(r'Foods', views.Food),
     url(r'Ice_Cream', views.Ice_Cream),
     url(r'SellectCategory', views.SellectCategory),
     url(r"sub", views.sub),

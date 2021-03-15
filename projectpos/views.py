@@ -99,14 +99,14 @@ def Deleteice(request):
 
 
 def Drink(request):
-    tableadd = request.POST.get('product', "a")
-    Q = request.POST.get('Q', " None")
-    print(tableadd)
-    print(Q)
     return render(request, 'Drink.html')
 
 
 def Food(request):
+    tableadd = request.POST.get('product', "a")
+    Q = request.POST.get('Q', " None")
+    print(tableadd)
+    print(Q)
     return render(request, 'food.html')
 
 
