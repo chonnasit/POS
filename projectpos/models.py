@@ -23,13 +23,13 @@ class Table(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
     number = models.CharField(max_length=3)
     Quantity = models.CharField(max_length=5)
-    Order_id = models.CharField(max_length=255)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
     status_table = models.CharField(max_length=255)
 
 
 class Q(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.CharField(max_length=255)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
 
 
 class Employee(models.Model):
@@ -74,7 +74,7 @@ class Order(models.Model):
 
 class Orderlish(models.Model):
     Orderlish_id = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.TextField(max_length=255)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
     nume_food = models.TextField(max_length=255)
     price = models.IntegerField()
     total_price = models.IntegerField()
@@ -84,11 +84,12 @@ class Orderlish(models.Model):
 
 class receipt(models.Model):
     ID = models.AutoField(auto_created=True, primary_key=True)
-    order_id = models.TextField(max_length=255)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
 
 
 class Tip(models.Model):
-    order_number = models.IntegerField()
+    ID = models.AutoField(auto_created=True, primary_key=True)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
     time_day = models.CharField(max_length=255)
     tip_cash = models.IntegerField()
     tip_tran = models.IntegerField()
