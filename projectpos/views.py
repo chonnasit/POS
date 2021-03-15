@@ -7,7 +7,7 @@ from .models import Table
 from django.core.mail import send_mail
 from .models import Order
 from .models import Tip
-
+from .models import Q
 # Create your views here.
 # Start Tong
 log = []
@@ -60,6 +60,7 @@ def Tableroom(request):
         log.append(password)
     if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
+
         return render(request, 'Tableroom.html', {'tables': tables})
     else:
         log.remove(log[0])

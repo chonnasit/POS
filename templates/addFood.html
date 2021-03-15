@@ -1,4 +1,4 @@
-{% extends 'Tableroom.html' %}
+﻿{% extends 'Tableroom.html' %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,19 +10,18 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>sweetmeat</title>
+    <title>เพิ่มประเภทอาหาร</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css"  href="{% static 'assets/css/simple-sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/simple-sidebar.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/home.css' %}" />
 
     <link href="https://fonts.googleapis.com/css?family=Rowdies" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
-
     <!-- Bootstrap icon CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -32,14 +31,14 @@
 
 <body>
     {% block content %}
-    <div class="d-flex" id="wrapper">
+    <div class="col ">
         <!-- Sidebar -->
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <p style="text-align: center; margin: auto">เพิ่มประเภทอาหาร</p>
+                    <p style="text-align: center; margin: auto;" class="text-white">เพิ่มประเภทอาหาร</p>
                 </div>
             </nav>
             <div class="container-fluid">
@@ -79,7 +78,7 @@
                                 <div class="card text-white bg-dark mb-3 card-mine" style="width: 13rem; height: 9rem; border-radius: 30px">
                                     <div style="text-align: center" class="card-body"></div>
                                     <div style="text-align: center" class="card-footer">
-                                        {{post.Ftype}}
+                                        {{post.type_food}}
                                     </div>
                                 </div>
                             </button>
@@ -125,8 +124,8 @@
         <!-- Bootstrap core JavaScript -->
         <!-- Modal -->
         <!--
-        <div class="modal-dialog modal-dialog-centered" style="max-width: 30%;">
-            <!-- Modal content-->
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 30%;">
+        <!-- Modal content-->
         <!--
         <div class="modal-content" style="background-color: #323444;">
             <div class="modal-header" style="border-bottom: 0px ;">
@@ -168,7 +167,7 @@
 
             }
         </script>
-
+    </div>
     {% endblock %}
 </body>
 

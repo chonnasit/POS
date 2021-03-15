@@ -22,15 +22,13 @@ class Owners(models.Model):
 class Table(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
     number = models.CharField(max_length=3)
-    Quantity = models.CharField(max_length=2)
-    time = models.CharField(max_length=10)
+    Quantity = models.CharField(max_length=5)
     Order_id = models.CharField(max_length=255)
+    status_table = models.CharField(max_length=255)
 
 
 class Q(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
-    number = models.CharField(max_length=3)
-    Quantity = models.CharField(max_length=2)
     Order_id = models.CharField(max_length=255)
 
 
@@ -51,48 +49,41 @@ class Employee(models.Model):
     Salary = models.IntegerField()
 
 
-class food(models.Model):
+class category(models.Model):
+    id = models.AutoField(auto_created=True, primary_key=True)
+    category = models.CharField(max_length=255)
+
+
+class Menu(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
     category = models.CharField(max_length=255)
     foodname = models.CharField(max_length=255)
     price = models.IntegerField()
-    time = models.IntegerField()
     image = models.CharField(max_length=255)
 
 
-class Orderlish(models.Model):
-    List_ID = models.AutoField(auto_created=True, primary_key=True)
-    types_order = models.TextField(max_length=255)
-    number_order = models.TextField(max_length=255)
-    number_table = models.TextField(max_length=255)
-    status = models.TextField(max_length=3)
-
-
 class Order(models.Model):
-    Order_number = models.IntegerField(auto_created=True, primary_key=True)
-    list = models.TextField(max_length=255)
-    priceorder = models.IntegerField()
-    number = models.IntegerField()
-    price = models.IntegerField()
-    type_food = models.TextField(max_length=255)
-    #List_ID = models.ForeignKey( Orderlish,on_delete=models.CASCADE)
+    Order_id = models.AutoField(auto_created=True, primary_key=True)
+    type_order = models.TextField(max_length=255)
+    number_table = models.TextField(max_length=255)
+    name = models.TextField(max_length=255)
+    status_order = models.TextField(max_length=100)
+    total = models.TextField(max_length=255)
 
 
 class Orderlish(models.Model):
-    #List_ID = models.AutoField(auto_created=True)
-    types_order = models.TextField(max_length=255)
-    number_order = models.TextField(max_length=255)
-    number_table = models.TextField(max_length=255)
-    status = models.TextField(max_length=3)
+    Orderlish_id = models.AutoField(auto_created=True, primary_key=True)
+    Order_id = models.TextField(max_length=255)
+    nume_food = models.TextField(max_length=255)
+    price = models.IntegerField()
+    total_price = models.IntegerField()
+    category = models.TextField(max_length=255)
+    status = models.TextField(max_length=255)
 
 
 class receipt(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True)
-
-    order = models.TextField(max_length=255)
-    number = models.IntegerField()
-    time = models.IntegerField()
-    manager = models.TextField(max_length=255)
+    ID = models.AutoField(auto_created=True, primary_key=True)
+    order_id = models.TextField(max_length=255)
 
 
 class Tip(models.Model):
@@ -101,3 +92,11 @@ class Tip(models.Model):
     tip_cash = models.IntegerField()
     tip_tran = models.IntegerField()
     tip_total = models.IntegerField()
+
+
+class Bill_Setting(models.Model):
+    ID = models.AutoField(auto_created=True, primary_key=True)
+    StoreName = models.TextField()
+    VAT = models.IntegerField()
+    SC = models.IntegerField()
+    EndTextBill = models.TextField()
