@@ -30,7 +30,8 @@ urlpatterns = [
     url(r'Kitchen', views.Kitchen),
     url(r'^Raw/', views.Raw),
     url(r'Rawmaterial/', views.Rawmaterial),
-
+    url(r"sub", views.sub),
+    url(r"removeq", views.removeq),
     # end Tong
     url(r'AddFood', views.AddMenu),
     url(r'DeleteDrink', views.DeleteDrink),
@@ -40,7 +41,7 @@ urlpatterns = [
     url(r'Foods', views.Food),
     url(r'Ice_Cream', views.Ice_Cream),
     url(r'SellectCategory', views.SellectCategory),
-    url(r"sub", views.sub),
+
     # end top
     url(r'Cash', views.Cash),
     url(r'Cash_Success', views.Cash_Success),

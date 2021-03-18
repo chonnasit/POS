@@ -20,11 +20,6 @@ def Login(request):
 def Forgetpassword(request):
     email = request.POST.get('email', "x")
     idcard = request.POST.get('idcard', "x")
-   # p = Owners.objects.get(email=email, ID_card=idcard)
-    # if p == True:
-    # send_mail('Thank you for registering to our site', p.password,
-    #        'chonnasit.s@ku.th', ['tong25658@gmail.com'], fail_silently=False)
-
     return render(request, 'Forgetpassword.html')
 
 
@@ -52,6 +47,24 @@ def Repassword(request):
     return render(request, 'Repassword.html')
 
 
+def removeq(request):
+    removeq = request.POST.get('listQ')
+    res = request.POST.get('Qg', None)
+    print(removeq)
+    print(res)
+    if removeq != None:
+        tables = Table.objects.get(number=res)
+        tables.Order_id = res
+        tables.status_table = "Y"
+        tables.save()
+        q = Q.objects.get(id=removeq)
+        q.delete()
+    if Owners.objects.filter(email=log[0], password=log[1]).exists():
+        tables = Table.objects.all()
+        q = Q.objects.all()
+        return render(request, 'Tableroom.html', {'tables': tables, 'q': q})
+
+
 def Tableroom(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
@@ -60,7 +73,9 @@ def Tableroom(request):
         log.append(password)
     if Owners.objects.filter(email=log[0], password=log[1]).exists():
         tables = Table.objects.all()
-        return render(request, 'Tableroom.html', {'tables': tables})
+
+        q = Q.objects.all()
+        return render(request, 'Tableroom.html', {'tables': tables, 'q': q})
     else:
         log.remove(log[0])
         log.remove(log[0])
