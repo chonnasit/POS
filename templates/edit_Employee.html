@@ -1,148 +1,254 @@
+{% extends 'Tableroom.html'%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แก้ไขข้อมูลพนักงาน</title>
-     <!-- CSS only -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
-     rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
-     crossorigin="anonymous">
-     
+    <title>แก้ไขพนักงาน</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+    crossorigin="anonymous">
+    
 </head>
 <body>
-    
-     <h1 align = center>ระบบจัดการพนักงาน</h1>
-    
-    <div class="row justify-content-between " >
-        <div class="col-4">
-          <h4 align = center> แก้ไขข้อมูลพนักงาน </h4>
-        </div>
-    </div>
+    {% block  content %}
     
    
-      
+    <h3>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</h3>
+   <div class="col ">
+        <form action="update_Employee" method="post">
+        {% csrf_token %}
+        <h3 align = center> แก้ไขพนักงาน </h3>
+        <h3>&nbsp;</h3>
 
-   <div class="container px-4 mt-3 ">
-        
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
-            style="width:500px;" value="นายดำ มากมาย">
-        </div>
-
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">เลขบัตรประจำตัวประชาชน * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="1270780012300"
-            style="width:400px;" placeholder="">
-        </div>
-        
-        
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">รหัสประจำตัวพนักงาน * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="111111"
-            style="width:400px;" placeholder="">
-        </div>
-
-        
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">User (เพื่อเข้าใช้ pos)  * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="bom"
-            style="width:300px;" placeholder="">
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="validationDefault01">ชื่อ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "fname" style="width:400px;"
+                value="{{edit_em.firstname}}"   id ="validationDefault01"  required>
+            </div>
+            <div class="col-6">
+                <label for="validationDefault02">นามสกุล <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "lname" style="width:400px;"
+                value="{{edit_em.Lastname}}"  id ="validationDefault02"  required>
+            </div>
         </div>
         
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Password * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="1234"
-            style="width:300px;" placeholder="">
+
+        <div class="from-group">
+            <label for="validationDefault03">เลขบัตรประจำตัวประชาชน <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "ID_card_number" style="width:400px;"
+            value="{{edit_em.ID_card}}"  onkeyup="autoTab1(this)"   minlength="17" maxlength="20"
+            id ="validationDefault03"  required>
         </div>
 
-        
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">ที่อยู่ปัจจุบันเลขที่/หมู่ที่/ตำบล/อำเภอ/จังหวัด * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1"
-             value="บ้านเลขที่ 123/1  หมู่ที่10  ตำบลทุ่งสุขา อำเภอศรีราชา  จังหวัดชลบุรี "
-            style="width:800px;" placeholder="">
-        </div>
-
-        
-        
-        
-        <label for="">ตำแหน่ง *</label>   
-         <select class="form-select" aria-label="Default select example" style="width:200px;">
-        <option selected><h4>พนักงาน</h4></option>
-        <option value="1">เจ้าของบริษัท</option>
-        <option value="2">ผู้จัดการสาขา</option>
-        <option value="3">พนักงาน</option>
-        <option value="4">พนักงานในครัว</option>
-      </select>
-
-
-    
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">ค่าจ้างต่อวัน * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="300"
-            style="width:200px;" placeholder="">
-        </div>
-
-
-
-
-
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email* </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="name@gmail.com"
-            style="width:500px;" placeholder="">
-        </div>
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">เบอร์โทรศัพท์ * </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="0844444444"
-            style="width:300px;" placeholder="">
+        <div class="from-group">
+            <label for="validationDefault04">รหัสประจำตัวพนักงาน <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "ID_Employee" style="width:400px;"
+            value="{{edit_em.ID_job}}"  id ="validationDefault04"  required>
         </div>
         
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">ธนาคารที่ใช้* </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="ธนาคารกรุงเทพ"
-            style="width:300px;" placeholder="">
+        <div class="from-group">
+            <label for="validationDefault05">User (เพื่อเข้าใช้ pos) <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "user" style="width:300px;"
+            value="{{edit_em.User}}"  id ="validationDefault05"  required>
         </div>
         
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">เลขบัญชี* </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" value="123-5676-64"
-            style="width:300px;" placeholder="">
+        <div class="from-group">
+            <label for="validationDefault06">Password <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "password" style="width:300px;"
+            value="{{edit_em.password}}"  id ="validationDefault06"  required>
+        </div>
+        <div class="row">
+            <div class="col-6 col-sm-4">
+                <label for="validationDefault07">ที่อยู่ปัจจุบันเลขที่ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "House_No" style="width:200px;"
+                value="{{x1}}"  id ="validationDefault07"  required>
+            </div>
+            <div class="col-6 col-sm-3">
+                <label for="validationDefault08">หมู่ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Village_No" style="width:200px;"
+                value="{{x2}}"  id ="validationDefault08"  required>
+            </div>
+            <div class="col-6 col-sm-3">
+                <label for="validationDefault09">ตำบล <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Sub_area" style="width:200px;"
+                value="{{x3}}"  id ="validationDefault09"  required>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="validationDefault10">อำเภอ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Area" style="width:200px;"
+                value="{{x4}}"  id ="validationDefault10"  required>
+            </div>
+            <div class="col-8">
+                <label for="validationDefault11">จังหวัด <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Province" style="width:200px;"
+                value="{{x5}}"  id ="validationDefault11"  required>
+            </div>
         </div>
         
-    
-    </div>
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="">ตำแหน่ง <font color="red"> * </font></label>   
+                <select class="form-select" aria-label="Default select example" value="{{edit_em.jobposition}}"
+                style="width:200px;" name="position">
+                    <option selected value="{{edit_em.jobposition}}">{{edit_em.jobposition}}</option>
+                    <option value="เจ้าของบริษัท">เจ้าของบริษัท</option>
+                    <option value="ผู้จัดการสาขา">ผู้จัดการสาขา</option>
+                    <option value="พนักงาน">พนักงาน</option>
+                    <option value="พนักงานในครัว">พนักงานในครัว</option>
+                  </select>
+            </div>
+            <div class="col-8">
+                 
+                <div class="from-group">
+                    <label for="validationDefault13">เงินเดือน <font color="red"> * </font></label>
+                    <input type="number" class="form-control" name = "salary" style="width:200px;"
+                    value="{{edit_em.Salary}}"  id ="validationDefault13"  required>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-evenly">
+            <div class="col gy-2" >
+                <div class="mb-3">
+                    <label for="validationDefault14">เบอร์โทรศัพท์ <font color="red"> * </font></label>
+                    <input type="text" class="form-control" name = "phone" style="width:300px;"
+                    value="{{edit_em.phone}}"  onkeyup="autoTab2(this)"  minlength="12" maxlength="17"
+                    id ="validationDefault14"  required>
+                    
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="from-group">
+                    <label for="validationDefault15" class="form-label">Email<font color="red"> * </font> </label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@gmail.com"
+                    style="width:300px;" name = "email" value="{{edit_em.email}}"  id ="validationDefault15"  required>
+                </div>
+            </div>
+        </div>
+       
+        
+        <div class="from-group">
+            <div class="col">
+                <label for="validationDefault12">ธนาคารที่ใช้ <font color="red"> * </font></label>  
+                <select class="form-select" aria-label="Default select example" style="width:200px;"
+                name = "bank"   id ="validationDefault16"  value="{{edit_em.Bank}}"  required>
+                <option selected  value="{{edit_em.Bank}}"  >{{edit_em.Bank}}</option>
+                <option value="ธนาคารกรุงเทพ">ธนาคารกรุงเทพ</option>
+                <option value="ธนาคารกสิกรไทย">ธนาคารกสิกรไทย</option>
+                <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
+                <option value="ธนาคารทหารไทย">ธนาคารทหารไทย</option>
+                <option value="ธนาคารไทยพาณิชย์">	ธนาคารไทยพาณิชย์</option>
+                <option value="ธนาคารกรุงศรีอยุธยา">ธนาคารกรุงศรีอยุธยา</option>
+                <option value="ธนาคารทิสโก้">ธนาคารทิสโก้</option>
+                <option value="ธนาคารธนชาต">ธนาคารธนชาต</option>
+                <option value="ธนาคารออมสิน">ธนาคารออมสิน</option>
+                
 
-    
+                </select>
+            </div>
         
+            
+        </div>
+        
+        <div class="from-group">
+            <label for="validationDefault17">เลขบัญชี <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "Bankaccount" style="width:300px;" 
+            value="{{edit_em.ID_bank}}"  onkeyup="autoTab3(this)"  minlength="12" maxlength="22"
+            id ="validationDefault17"  required>
+        </div>
+        
+
         <div class="row justify-content-between">
             <div class="col-4">
             </div>
             <div class="col-4">
-            <input type="button" value="บันทึก" class ="btn btn-success">
-            <input type="button" value="ยกเลิก" class ="btn btn-danger">
+                <button type="submit" value="{{edit_em.id}}" name="update"
+                class ="btn btn-success">ยืนยัน</button>
+                
+                <a href="/Employee_list" ><input type="button" value="ยกเลิก" class ="btn btn-danger"></a>
             </div>
-            </div>
+        </div>
+        <h3>&nbsp;</h3>
+        <h3>&nbsp;</h3>
+    </form>
+    
 
+    </div>
+    <script>
+        function autoTab1(obj) {
+            var pattern = new String("_-____-_____-_-__"); // กำหนดรูปแบบในนี้ id_card_number
+            var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+            var returnText = new String("");
+            var obj_l = obj.value.length;
+            var obj_l2 = obj_l - 1;
+            for (i = 0; i < pattern.length; i++) {
+                if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+                    returnText += obj.value + pattern_ex;
+                    obj.value = returnText;
+                }
+            }
+            if (obj_l >= pattern.length) {
+                obj.value = obj.value.substr(0, pattern.length);
+            }
+        }
+    
+        </script>
+        <script>
+            function autoTab2(obj) {
+                var pattern = new String("__-____-____"); // กำหนดรูปแบบในนี้ phone
+                var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+                var returnText = new String("");
+                var obj_l = obj.value.length;
+                var obj_l2 = obj_l - 1;
+                for (i = 0; i < pattern.length; i++) {
+                    if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+                        returnText += obj.value + pattern_ex;
+                        obj.value = returnText;
+                    }
+                }
+                if (obj_l >= pattern.length) {
+                    obj.value = obj.value.substr(0, pattern.length);
+                }
+            }
+        
+            </script>
+        </script>
+        <script>
+            function autoTab3(obj) {
+                var pattern = new String("___-_-_____-______"); // กำหนดรูปแบบในนี้ bank
+                var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+                var returnText = new String("");
+                var obj_l = obj.value.length;
+                var obj_l2 = obj_l - 1;
+                for (i = 0; i < pattern.length; i++) {
+                    if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+                        returnText += obj.value + pattern_ex;
+                        obj.value = returnText;
+                    }
+                }
+                if (obj_l >= pattern.length) {
+                    obj.value = obj.value.substr(0, pattern.length);
+                }
+            }
+        
+            </script>
 
+    
+        
+        
 
-
-
-
-
-            <!-- JavaScript Bundle with Popper -->
+            
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
         crossorigin="anonymous"></script>
+        {% endblock %}
+    
 </body>
 </html>

@@ -19,7 +19,7 @@ from projectpos import views
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-#from django.urls import path
+
 urlpatterns = [
 
     #url(r'^admin/', admin.site.urls),
@@ -48,9 +48,11 @@ urlpatterns = [
     url(r'Transfer', views.Transfer),
     url(r'Transfer_Success', views.Transfer_Success),
     # end Frong
+    url(r'Delete_employee', views.Delete_employee),
     url(r'Add_Employee', views.Add_Employee),
+    url(r'add_database', views.add_database),
     url(r'Edit_Employee', views.Edit_Employee),
-    url(r'Edit_Food', views.Edit_Food),
+    url(r'update_Employee', views.update_Employee),
     url(r'Employee_list', views.Employee_list),
     url(r'View_Employee', views.View_Employee),
     # end Tomtam

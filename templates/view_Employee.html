@@ -1,77 +1,168 @@
 {% extends 'Tableroom.html'%}
 {% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ดูข้อมูลพนักงาน</title>
-     <!-- CSS only -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-     rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-     crossorigin="anonymous">
-     <link rel="stylesheet" type="text/css"  href="{% static 'assets/css/simple-sidebar.css' %}" />
-     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
-     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/home.css' %}" />
-
-     <link href="https://fonts.googleapis.com/css?family=Rowdies" rel="stylesheet" />
-     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
-
-     <!-- Bootstrap icon CSS -->
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+    crossorigin="anonymous">
+    
 </head>
 <body>
     {% block  content %}
-    <h2 align = center>ระบบจัดการพนักงาน</h2>
-    <div class="container px-4 mt-3 ">
-        <div class="row gx-5">
-            <h3>ดูข้อมูลพนักงาน </h3>
+    
+   
+      
+    <h3>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</h3>
+   
+   <div class="col ">
+        <h3 align = center> ดูข้อมูลพนักงาน </h3>
+        <h3>&nbsp;</h3>
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="">ชื่อ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "fname" style="width:400px;" 
+                value="{{view_em.firstname}}" readonly>
+            </div>
+            <div class="col-6">
+                <label for="">นามสกุล <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "lname" style="width:400px;" 
+                value="{{view_em.Lastname}}" readonly>
+            </div>
         </div>
+        
+        
+        <div class="from-group">
+            <label for="">เลขบัตรประจำตัวประชาชน <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "ID_card_number" style="width:400px;"
+            value="{{view_em.ID_card}}" readonly>
+        </div>
+
+        <div class="from-group">
+            <label for="">รหัสประจำตัวพนักงาน <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "ID_Employee" style="width:400px;"
+            value="{{view_em.ID_job}}" readonly>
+        </div>
+        
+        <div class="from-group">
+            <label for="">User (เพื่อเข้าใช้ pos) <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "user" style="width:300px;"
+            value="{{view_em.User}}" readonly>
+        </div>
+        
+        <div class="from-group">
+            <label for="">Password <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "password" style="width:300px;"
+            value="{{view_em.password}}" readonly>
+        </div>
+        <div class="row">
+            <div class="col-6 col-sm-4">
+                <label for="">ที่อยู่ปัจจุบันเลขที่ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "House_No" style="width:200px;"
+                value="{{x1}}" readonly>
+            </div>
+            <div class="col-6 col-sm-3">
+                <label for="">หมู่ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Village_No" style="width:200px;"
+                value="{{x2}}" readonly>
+            </div>
+            <div class="col-6 col-sm-3">
+                <label for="">ตำบล <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Sub_area" style="width:200px;"
+                value="{{x3}}" readonly>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="">อำเภอ <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Area" style="width:200px;"
+                value="{{x4}} " readonly>
+            </div>
+            <div class="col-8">
+                <label for="">จังหวัด <font color="red"> * </font></label>
+                <input type="text" class="form-control" name = "Province" style="width:200px;"
+                value="{{x5}}" readonly>
+            </div>
+        </div>
+        
+
+        <div class="row justify-content-evenly">
+            <div class="col">
+                <label for="">ตำแหน่ง <font color="red"> * </font></label>   
+                <input type="text" class="form-control" name = "position" style="width:200px;"
+                value="{{view_em.jobposition}}" readonly>
+            </div>
+            <div class="col-8">
+                 
+                <div class="from-group">
+                    <label for="">เงินเดือน <font color="red"> * </font></label>
+                    <input type="text" class="form-control" name = "salary" style="width:200px;"
+                    value="{{view_em.Salary}}" readonly>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-evenly">
+            <div class="col gy-2">
+                <div class="mb-3">
+                    <label for="">เบอร์โทรศัพท์ <font color="red"> * </font></label>
+                    <input type="text" class="form-control" name = "phone" style="width:300px;"
+                    value="{{view_em.phone}}" readonly>
+                    
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="from-group">
+                    <label for="exampleFormControlInput1" class="form-label">Email<font color="red"> * </font> </label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@gmail.com"
+                    style="width:300px;" name = "email" value="{{view_em.email}}" readonly>
+                </div>
+            </div>
+        </div>
+       
+        
+        <div class="from-group">
+            
+            <label for="">ธนาคารที่ใช้ <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "bank" style="width:300px;" 
+            value="{{view_em.Bank}}" readonly>
+        </div>
+        
+        <div class="from-group">
+            <label for="">เลขบัญชี <font color="red"> * </font></label>
+            <input type="text" class="form-control" name = "Bankaccount" style="width:300px;" 
+            value="{{view_em.ID_bank}}" readonly>
+        </div>
+
+
+        <div class="row justify-content-between">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <a href="/Employee_list" ><input type="button" value="เสร็จสิ้น" class ="btn btn-success"></a>
+                
+                
+            </div>
+        </div>
+        <h3>&nbsp;</h3>
+        <h3>&nbsp;</h3>
+
     </div>
 
-    <div class="container px-4 mt-4 ">
-        <div class="row gx-5">
+    
+        
+        
 
-            <h4>ชื่อ-นามสกุล :  นายดำ มากมาย</h4>
-            <h4>เลขบัตรประจำตัวประชาชน :  1270780012300</h4>
-            <h4>รหัสประจำตัวพนักงาน  :  111111</h4>
-            <h4>User (เพื่อเข้าใช้ pos)  :  bom</h4>
-            <h4>Password  :  1234 </h4>
-            <h4>ที่อยู่ปัจจุบันเลขที่/หมู่ที่/ตำบล/อำเภอ/จังหวัด  :  บ้านเลขที่ 123/1  หมู่ที่10  ตำบลทุ่งสุขา อำเภอศรีราชา  จังหวัดชลบุรี </h4>
-            <h4>ตำแหน่ง  :  พนักงาน </h4>
-            <h4>ค่าจ้างต่อวัน : 300 </h4>
-            <h4>เบอร์โทรศัพท์  :  0844444444 </h4>
-            <h4>ธนาคารที่ใช้  :  ธนาคารกรุงเทพ</h4>
-            <h4>เลขบัญชี  :  123-5676-64</h4>
-        </div>
-
-    </div>
-
-    <div class="row justify-content-between">
-        <div class="col-4">
-        </div>
-        <div class="col-4">
-        <input type="button" value="เสร็จสิ้น" class ="btn btn-success">
-
-        </div>
-        </div>
-            <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
         crossorigin="anonymous"></script>
-
-
-
-
-
-
-  {% endblock %}
-
-
-
+        {% endblock %}
+    
 </body>
 </html>

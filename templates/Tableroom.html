@@ -185,7 +185,7 @@
             </form>
           </div>
         </div>
-
+     
       <div class="row">
        
         <div class=" col-6 " style="margin-left:3%;margin-right:5%;height: 50px;">
@@ -196,11 +196,22 @@
              <script>
                
                 var linkaction = "/Foods" ;
-                function retables(){
-                   linkaction = "/removeq";
-                }
-               document.write("<form action="+linkaction+" "+ "method='post'>")
-              
+                function myFunction(aa){
+                  if(aa== null){
+                    linkaction = "/Foods" ;
+                  }
+                  else{
+                    linkaction = "/removeq";
+                    console.log(linkaction)
+                  }
+                  console.log(linkaction)
+                  document.write("<form action="+linkaction+" "+ "method='post'>");
+                };
+                //componentWillMount() { 
+               // linkaction=myFunction();
+                //console.log(linkaction);
+              //  document.write("<form action="+linkaction+" "+ "method='post'>");
+              //  };
              </script>
              
               {% csrf_token %}
@@ -229,7 +240,7 @@
                       <div class="grid-item">{{a.time}}</div>
                        <div class="grid-item">   </div>
                       <div class="grid-item">
-                        <button type="button" class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background:#323444"  onclick="retables()" >
+                        <button type="button" class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background:#323444"  onclick="myFunction(1)" >
                            <p style="color:white" >
                              ย้ายโต๊ะ
                            </p>
