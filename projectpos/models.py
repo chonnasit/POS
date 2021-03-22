@@ -74,7 +74,7 @@ class Order(models.Model):
 
 class Orderlish(models.Model):
     Orderlish_id = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', on_delete=models.DO_NOTHING, blank=True)
     nume_food = models.TextField(max_length=255)
     price = models.IntegerField()
     total_price = models.IntegerField()
@@ -84,12 +84,12 @@ class Orderlish(models.Model):
 
 class receipt(models.Model):
     ID = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', on_delete=models.DO_NOTHING, blank=True)
 
 
 class Tip(models.Model):
     ID = models.AutoField(auto_created=True, primary_key=True)
-    Order_id = models.ForeignKey('Order', db_column='Order_id', blank=True)
+    Order_id = models.ForeignKey('Order', db_column='Order_id', on_delete=models.DO_NOTHING, blank=True)
     time_day = models.CharField(max_length=255)
     tip_cash = models.IntegerField()
     tip_tran = models.IntegerField()
