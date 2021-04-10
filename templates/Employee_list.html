@@ -15,98 +15,133 @@
 </head>
 <body>
   {% block  content %}
-   
-  <h3>&nbsp;&nbsp;&nbsp;&nbsp; </h3>  
-  <div class="col ">
-        
-        <div class="row">
-          <div class="col">&nbsp;</div>
-        </div> 
-        <div class="row">
-          <div class="col"><h4 align = center>รายการพนักงาน</h4></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"><a href="/Add_Employee" ><input type="button" value="เพิ่มพนักงาน" class ="btn btn-primary" > </a></div>
-        </div>
-
-        <table class="table ">
-          <thead>
-            <tr>
-              <th scope="col">no</th>
-              <th scope="col">ชื่อ-สกุล</th>
-              <th scope="col">email</th>
-              <th scope="col">ตำแหน่ง</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {%  for post in data %}
-            
-              
-            <tr>
-              <th scope="row">{{post.id}}</th>
-              <td>{{post.firstname}} &nbsp; &nbsp;{{post.Lastname}}</td>
-              <td>{{post.email}}</td>
-              <td>{{post.jobposition}}</td>
-              <td>
-                
     
-                <div class="row">
-                  <div class="col order-last">
-                    <form action="Delete_employee" method="post">
-                      {% csrf_token %}
+
+
+    <div class="row justify-content-between">
+    <div class="col-4">
+      <h4 align = center>รายการพนักงาน</h4>
+    </div>
+    <div class="col-4">
+    <input type="button" value="เพิ่มพนักงาน" class ="btn btn-primary" onclick=>
+    </div>
+    </div>
+
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">no</th>
+                <th scope="col">ชื่อ-สกุล</th>
+                <th scope="col">email</th>
+                <th scope="col">ตำแหน่ง</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>นายดำ  มากมาย</td>
+                <td>fdsfsd@gmail.com</td>
+                <td>เจ้าของบริษัท</td>
+                <td>
+
+                  <div class="container">
+                    <div class="row align-items-center">
                       <div class="col gx-0">
-                        <button type="submit  "  value="{{post.id}}"  name="delete"  onclick="return confirm('ยืนยันการลบ !!!')">
-                          <img src="{% static 'image/1.png' %}" width = 30  alt="alternatetext">
-                        </button>
-                        
-                        
+                        <input type="image" value="submit"  src="image/3.jpg" width = 30  class="rounded float-start" alt="..." >
                       </div>
-                    </form>
-                  </div>
-                  <div class="col">
-                    <form action="View_Employee" method="post">
-                      {% csrf_token %}
-                    <div class="col gx-0">
-                      <button type="submit  "  name="view" value="{{post.id}}" >
-                        <img src="{% static 'image/2.png' %}" width = 40  alt="alternatetext">
-                      </button>
-                      
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/2.png" width = 30  class="rounded float-start " alt="..." >
+
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/1.png" width = 30  class="rounded float-start" alt="...">
+                      </div>
                     </div>
-                    </form>
                   </div>
-                  <div class="col order-first">
-                    <form action="Edit_Employee" method="post">
-                      {% csrf_token %}
-                    <div class="col gx-0">
-                      <button type="submit" value="{{post.id}}" name = "edit" >
-                        <img src="{% static 'image/3.jpg' %}" 
-                        width = 30 alt="alternatetext">
-                      </button>
-                       
+
+                </td>
+
+
+
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>นายขาว สว่าง</td>
+                <td>iopy@gmail.com</td>
+                <td>ผู้จัดการสาขา</td>
+                <td>
+
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/3.jpg" width = 30  class="rounded float-start" alt="..." >
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/2.png" width = 30  class="rounded float-start " alt="..." >
+
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/1.png" width = 30  class="rounded float-start" alt="...">
+                      </div>
                     </div>
-                    </form>
                   </div>
 
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>นายแดง  สายบวก</td>
+                <td>5555@gmail.com</td>
+                <td>พนักงาน</td>
+                <td>
 
-                </div>
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/3.jpg" width = 30  class="rounded float-start" alt="..." >
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/2.png" width = 30  class="rounded float-start " alt="..." >
 
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/1.png" width = 30  class="rounded float-start" alt="...">
+                      </div>
+                    </div>
+                  </div>
 
-              </td>
-            </tr>
-            
-            {%  endfor  %}
-            
-            
-          </tbody>
-        </table> 
-        
-     
-    
-  </div>
-     
-      
-      
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>นายส้ม  สุดสวย</td>
+                <td>6666@gmail.com</td>
+                <td>พนักงานในครัว</td>
+                <td>
+
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/3.jpg" width = 30  class="rounded float-start" alt="..." >
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/2.png" width = 30  class="rounded float-start " alt="..." >
+
+                      </div>
+                      <div class="col gx-0">
+                        <input type="image" value="submit"  src="image/1.png" width = 30  class="rounded float-start" alt="...">
+                      </div>
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
 
 
 

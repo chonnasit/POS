@@ -14,253 +14,179 @@
 </head>
 
 <body>
-
-    {% block content %}
-
-    <main class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark  border-bottom" style="background:#323444">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <p style="text-align: center; margin: auto;color: white">สรุปยอดขาย</p>
+  {% block content %}
+  {% for owner in posts %}
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Sales Report</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    This month
+                </button>
             </div>
-        </nav>
-        
-            <div
-                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Sales Report</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This month
-                    </button>
-                </div>
-            </div>
+        </div>
+        <h1 class="h2">ยอดขายทั้งหมด</h1>
+        <h1 class="h2">จำนวนบิล</h1>
 
-            <!-- Total -->
-            <div class="row bg-light mt-0">
-                <div class="col-10">
-                    <p class="mt-2 fs-3">ยอดขายทั้งหมด</p>
-                    <p class="mt-2 fs-3">จำนวนบิล</p>
-                </div>
-                <div class="col-2">
-                    <div class="d-flex">
-                        <div class="ms-0">
-                            <p class="mt-2 end-0 fs-4">4000 บาท</p>
-                            <p class="mt-2 end-0 fs-4">14 บิล</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-            <!-- Chart -->
-            <canvas id="myChart"></canvas>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-            <script>
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                    // The type of chart we want to create
-                    type: 'line',
+        <h2>ยอดขาย (ต่อวัน)</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>เวลา (ชม.)</th>
+                        <th>จำนวนบิล</th>
+                        <th>ยอดเงินรวม</th>
+                        <th>ยอดเฉลี่ยต่อบิล</th>
+                        <th>ยอดเงินทิป</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11.00</td>
+                        <td>{{owner.id}}</td>
+                        <td>100</td>
+                        <td>{{owner.email}}</td>
+                        <td>{{owner.password}}</td>
+                    </tr>
+                    <tr>
+                        <td>12.00</td>
+                        <td></td>
+                        <td>500</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>13.00</td>
+                        <td></td>
+                        <td>250</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>14.00</td>
+                        <td></td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>15.00</td>
+                        <td></td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>16.00</td>
+                        <td></td>
+                        <td>750</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>17.00</td>
+                        <td></td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>18.00</td>
+                        <td></td>
+                        <td>1004</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>19.00</td>
+                        <td></td>
+                        <td>750</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>20.00</td>
+                        <td></td>
+                        <td>750</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>AVERAGE</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                    // The data for our dataset
-                    data: {
-                        labels: [
-                            '11.00',
-                            '12.00',
-                            '13.00',
-                            '14.00',
-                            '15.00',
-                            '16.000',
-                            '17.00',
-                            '18.00',
-                            '19.00',
-                            '20.00',],
-                        datasets: [{
-                            label: 'Per Day',
-                            backgroundColor: 'transparent',
-                            borderColor: 'rgb(255, 99, 132)',
-                            //lineTension: 0, // ไม่เคิฟ
-                            borderWidth: 4,
-                            pointBackgroundColor: '#007bff',
-                            data: [
-                                100,
-                                500,
-                                250,
-                                0,
-                                0,
-                                750,
-                                0,
-                                1004,
-                                750,
-                                750,]
-                        }]
-                    },
+        <h2>สินค้าที่ขายได้</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>จำนวนที่ขายได้</th>
 
-                    // Configuration options go here
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: false
-                                }
-                            }]
-                        },
-                        legend: {
-                            display: false
-                        }
-                    }
-                });
-            </script>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ชาเขียวลาเต้</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>เฉาก๊วยคาราเมลนมสด</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>โกโก้โอริโอ้ปั่น</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ไอศกรีมมะม่วง</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td>24</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    </div>
+    </div>
 
 
-            <!-- ตาราง1 -->
-            <div class="row ms-3 mt-3" style="background:#323444">
-                <p class="fs-2">ยอดขาย (ต่อวัน)</p>
-                <!-- <p class="text-center fs-2">ยอดขาย (ต่อวัน)</p> -->
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>เวลา (ชม.)</th>
-                            <th>จำนวนบิล</th>
-                            <th>ยอดเงินรวม</th>
-                            <th>ยอดเฉลี่ยต่อบิล</th>
-                            <th>ยอดเงินทิป</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>11.00</td>
-                            <td>{{owner.id}}</td>
-                            <td>100</td>
-                            <td>{{owner.email}}</td>
-                            <td>{{owner.password}}</td>
-                        </tr>
-                        <tr>
-                            <td>12.00</td>
-                            <td></td>
-                            <td>500</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>13.00</td>
-                            <td></td>
-                            <td>250</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>14.00</td>
-                            <td></td>
-                            <td>0</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>15.00</td>
-                            <td></td>
-                            <td>0</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>16.00</td>
-                            <td></td>
-                            <td>750</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>17.00</td>
-                            <td></td>
-                            <td>0</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>18.00</td>
-                            <td></td>
-                            <td>1004</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>19.00</td>
-                            <td></td>
-                            <td>750</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>20.00</td>
-                            <td></td>
-                            <td>750</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>TOTAL</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>AVERAGE</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- ตาราง2 -->
-            <h2>สินค้าที่ขายได้</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>ชื่อสินค้า</th>
-                            <th>จำนวนที่ขายได้</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>ชาเขียวลาเต้</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>เฉาก๊วยคาราเมลนมสด</td>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>โกโก้โอริโอ้ปั่น</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>ไอศกรีมมะม่วง</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>TOTAL</td>
-                            <td>24</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+{% endblock %}
 </body>
 
 </html>

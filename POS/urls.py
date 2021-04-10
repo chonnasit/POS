@@ -30,45 +30,30 @@ urlpatterns = [
     url(r'Kitchen', views.Kitchen),
     url(r'^Raw/', views.Raw),
     url(r'Rawmaterial/', views.Rawmaterial),
-    url(r"sub", views.sub),
-    url(r"removeq", views.removeq),
-    # end Tong
-    url(r'AddFood', views.AddMenu),
+    #end Tong
+    url(r'AddFood', views.AddFood),
     url(r'DeleteDrink', views.DeleteDrink),
     url(r'DeleteFood', views.DeleteFood),
     url(r'Deleteice', views.Deleteice),
     url(r'Drink', views.Drink),
-    url(r'Foods', views.Food),
+    url(r'Food/', views.Food),
     url(r'Ice_Cream', views.Ice_Cream),
     url(r'SellectCategory', views.SellectCategory),
-
-    # end top
+    #end top
     url(r'Cash', views.Cash),
     url(r'Cash_Success', views.Cash_Success),
     url(r'Transfer', views.Transfer),
     url(r'Transfer_Success', views.Transfer_Success),
-    # end Frong
-    url(r'Delete_employee', views.Delete_employee),
+    #end Frong
     url(r'Add_Employee', views.Add_Employee),
-    url(r'add_database', views.add_database),
     url(r'Edit_Employee', views.Edit_Employee),
-    url(r'update_Employee', views.update_Employee),
+    url(r'Edit_Food', views.Edit_Food),
     url(r'Employee_list', views.Employee_list),
     url(r'View_Employee', views.View_Employee),
-    # end Tomtam
+    #end Tomtam
     url(r'Orderhis', views.Orderhis),
     url(r'Report', views.Report),
     url(r'Tipsd', views.Tipsd),
-    # end Bank
-    url(r'AddMenu', views.AddMenu),
-    url(r'AddTable', views.AddTable),
-    url(r'BillSetting', views.BillSetting),
-    url(r'BuyMoreFood', views.BuyMoreFood),
-    url(r'ChangeFood', views.ChangeFood),
-    url(r'DeleteTable', views.DeleteTable),
-    url(r'listCustomer', views.listCustomer),
-    # path(r'Delete/<int:id>', views.DelTable),
-    # end Kris
-
+    #end Bank
 ]
 urlpatterns += staticfiles_urlpatterns()
